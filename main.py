@@ -67,7 +67,7 @@ class GameMain:
         self.start_img = pygame.image.load('img/start_btn.png').convert_alpha()
         self.exit_img = pygame.image.load('img/exit_btn.png').convert_alpha()
         self.restart_img = pygame.image.load('img/restart_btn.png').convert_alpha()
-        
+        self.back_img = pygame.image.load('img/back_btn.png').convert_alpha()
         
         #background
         self.pine1_img = pygame.image.load('img/Background/pine1.png').convert_alpha()
@@ -109,13 +109,13 @@ class GameMain:
         #create screen fades
         self.intro_fade = sf.ScreenFade(self, 1, self.BLACK, 4)
         self.death_fade = sf.ScreenFade(self, 2, self.PINK, 4)
-        
-        
+
         #create buttons
         self.start_button = button.Button(self.SCREEN_WIDTH // 2 - 130, self.SCREEN_HEIGHT // 2 - 150, self.start_img, 1)
         self.exit_button = button.Button(self.SCREEN_WIDTH // 2 - 110, self.SCREEN_HEIGHT // 2 + 50, self.exit_img, 1)
         self.restart_button = button.Button(self.SCREEN_WIDTH // 2 - 100, self.SCREEN_HEIGHT // 2 - 50, self.restart_img, 2)
-        
+        self.back_button = button.Button(self.SCREEN_WIDTH - 120, self.SCREEN_HEIGHT // 100, self.back_img, 0.5)
+
         #create sprite groups
         self.enemy_group = pygame.sprite.Group()
         self.bullet_group = pygame.sprite.Group()
@@ -199,6 +199,9 @@ class GameMain:
         		self.draw_bg()
         		#draw world map
         		self.world.draw()
+        		#return button
+        		if self.back_button.draw(self.screen):
+        			self.start_game = False
         		#show player health
         		self.health_bar.draw(self.player.health)
         		#show ammo
