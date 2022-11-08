@@ -1,11 +1,13 @@
 # -*- coding: utf-8 -*-
+import pygame 
 
 class Decoration(pygame.sprite.Sprite):
-	def __init__(self, img, x, y):
-		pygame.sprite.Sprite.__init__(self)
-		self.image = img
-		self.rect = self.image.get_rect()
-		self.rect.midtop = (x + TILE_SIZE // 2, y + (TILE_SIZE - self.image.get_height()))
+    def __init__(self, game, img, x, y):
+        pygame.sprite.Sprite.__init__(self)
+        self.game = game
+        self.image = img
+        self.rect = self.image.get_rect()
+        self.rect.midtop = (x + self.game.TILE_SIZE // 2, y + (self.game.TILE_SIZE - self.image.get_height()))
 
-	def update(self):
-		self.rect.x += screen_scroll
+    def update(self):
+        self.rect.x += self.game.screen_scroll
