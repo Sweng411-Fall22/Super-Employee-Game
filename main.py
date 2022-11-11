@@ -35,6 +35,7 @@ class GameMain:
         self.level = 1
         self.start_game = False
         self.start_intro = False
+        self.menu_state = "main"
         
         
         ' PLAYER VARIABLES '
@@ -68,6 +69,10 @@ class GameMain:
         self.exit_img = pygame.image.load('img/exit_btn.png').convert_alpha()
         self.restart_img = pygame.image.load('img/restart_btn.png').convert_alpha()
         self.back_img = pygame.image.load('img/back_btn.png').convert_alpha()
+        self.settings_img = pygame.image.load('img/settings_btn.png').convert_alpha()
+        self.high_img = pygame.image.load('img/high_btn.png').convert_alpha()
+        self.low_img = pygame.image.load('img/low_btn.png').convert_alpha()
+        self.off_img = pygame.image.load('img/off_btn.png').convert_alpha()
         
         #background
         self.pine1_img = pygame.image.load('img/Background/pine1.png').convert_alpha()
@@ -115,6 +120,10 @@ class GameMain:
         self.exit_button = button.Button(self.SCREEN_WIDTH // 2 - 110, self.SCREEN_HEIGHT // 2 + 50, self.exit_img, 1)
         self.restart_button = button.Button(self.SCREEN_WIDTH // 2 - 100, self.SCREEN_HEIGHT // 2 - 50, self.restart_img, 2)
         self.back_button = button.Button(self.SCREEN_WIDTH - 120, self.SCREEN_HEIGHT // 100, self.back_img, 0.5)
+        self.settings_button = button.Button(self.SCREEN_WIDTH // 2 - 170, self.SCREEN_HEIGHT // 2 - 50, self.settings_img, 1)
+        self.sfx_high_button = button.Button(self.SCREEN_WIDTH - 275, self.SCREEN_HEIGHT // 2 - 180, self.high_img, 1)
+        self.sfx_low_button = button.Button(self.SCREEN_WIDTH - 475, self.SCREEN_HEIGHT // 2 - 180, self.low_img, 1)
+        self.sfx_off_button = button.Button(self.SCREEN_WIDTH - 675, self.SCREEN_HEIGHT // 2 - 180, self.off_img, 1)
 
         #create sprite groups
         self.enemy_group = pygame.sprite.Group()
@@ -188,12 +197,33 @@ class GameMain:
         	if self.start_game == False:
         		#draw menu
         		self.screen.fill(self.BG)
-        		#add buttons
-        		if self.start_button.draw(self.screen):
-        			self.start_game = True
-        			self.start_intro = True
-        		if self.exit_button.draw(self.screen):
-        			self.run = False
+                # check menu state
+                if self.menu_state == "main":
+                    #draw main menu screen buttons
+                    if self.start_button.draw(self.screen):
+                        self.start_game = True
+                        self.start_intro = True
+                    if self.settings_button.draw(self.screen):
+                        self.menu_state = "settings"
+                    if self.exit_button.draw(self.screen):
+                        self.run = False
+                if self.menu_state == "settings":
+                    self.draw_text('SFX VOLUME: ', self.font, self.WHITE, 50, 75)
+                    if self.sfx_low_button.draw(self.screen):
+                        self.jump_fx.set_volume(0.025)
+                        self.shot_fx.set_volume(0.025)
+                        self.grenade_fx.set_volume(0.025)
+                    if self.sfx_high_button.draw(self.screen):
+                        self.jump_fx.set_volume(0.075)
+                        self.shot_fx.set_volume(0.075)
+                        self.grenade_fx.set_volume(0.075)
+                    if self.sfx_off_button.draw(self.screen):
+                        self.jump_fx.set_volume(0)
+                        self.shot_fx.set_volume(0)
+                        self.grenade_fx.set_volume(0)
+                    if self.back_button.draw(self.screen):
+                        self.menu_state = "main"
+                        
         	else:
         		#update background
         		self.draw_bg()
