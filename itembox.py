@@ -16,6 +16,8 @@ class ItemBox(pygame.sprite.Sprite):
         self.rect.x += self.game.screen_scroll
         #check if the player has picked up the box
         if pygame.sprite.collide_rect(self, self.game.player):
+            self.game.player_score += 5
+            self.game.score.prep_score()
             #check what kind of box it was
             if self.item_type == 'Health':
                 self.game.player.health += 25
