@@ -164,8 +164,6 @@ class Score:
         ''' prints top 5 high scores to screen '''
 
         font = self.font
-        hs = ['', '', '', '', '']
-        hsn = ['', '', '', '', '']
         
         # title coordinates
         ntx = 20
