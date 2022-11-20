@@ -321,6 +321,7 @@ class GameMain:
                             self.player, self.health_bar = self.world.process_data(self.world_data)    
                 else:
                     self.score.check_scores()
+                    #self.score.show_scoreboard()
                     self.screen_scroll = 0
                     self.player_score = 0
                     self.score.prep_score()
