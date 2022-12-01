@@ -63,7 +63,11 @@ class GameMain:
         self.shot_fx.set_volume(0.05)
         self.grenade_fx = pygame.mixer.Sound('audio/grenade.wav')
         self.grenade_fx.set_volume(0.05)
-        
+
+        #game title image
+        self.gametitle_img = pygame.image.load('img/gametitle.png')
+        #use to manually re-size image:
+        #self.gametitle_img = pygame.transform.scale(self.gametitle_img, (self.gametitle_img.get_width(), self.gametitle_img.get_height()))
         
         #load images
         #button images
@@ -204,6 +208,8 @@ class GameMain:
                 self.screen.fill(self.BG)
                 # check menu state
                 if self.menu_state == "main":
+                    #show game title image
+                    self.screen.blit(self.gametitle_img, (self.SCREEN_WIDTH // 2 - 128, self.SCREEN_HEIGHT // 2 - 250))
                     #draw main menu screen buttons
                     if self.start_button.draw(self.screen):
                         self.start_game = True
