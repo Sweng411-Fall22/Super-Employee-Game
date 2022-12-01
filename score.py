@@ -87,13 +87,13 @@ class Score:
         str_hs = ['', '', '', '', '']
         
         # update names file
-        with open('names.txt.', 'w') as file:
+        with open('names.txt', 'w') as file:
             file.writelines(self.high_score_names)
             
         # update scores file
         for i in range(len(self.high_scores)):
             str_hs[i] = str(self.high_scores[i]) + "\n"
-        with open('scores.txt.', 'w') as file:
+        with open('scores.txt', 'w') as file:
             file.writelines(str_hs)
             
             
