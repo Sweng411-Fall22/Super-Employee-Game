@@ -111,7 +111,7 @@ class GameMain:
         self.PINK = (235, 65, 54)
         
         #define font
-        self.font = pygame.font.SysFont('Futura', 30)
+        self.font = pygame.font.Font('font/ARCADECLASSIC.TTF', 30)
         
         #create screen fades
         self.intro_fade = sf.ScreenFade(self, 1, self.BLACK, 4)
@@ -211,7 +211,7 @@ class GameMain:
                     if self.exit_button.draw(self.screen):
                         self.run = False
                 if self.menu_state == "settings":
-                    self.draw_text('SFX VOLUME: ', self.font, self.WHITE, 50, 75)
+                    self.draw_text('SFX VOLUME ', self.font, self.WHITE, 50, 75)
                     if self.sfx_low_button.draw(self.screen):
                         self.jump_fx.set_volume(0.025)
                         self.shot_fx.set_volume(0.025)
@@ -240,11 +240,11 @@ class GameMain:
                 #show score
                 self.score.show_score()
                 #show ammo
-                self.draw_text('AMMO: ', self.font, self.WHITE, 10, 35)
+                self.draw_text('AMMO ', self.font, self.WHITE, 10, 35)
                 for x in range(self.player.ammo):
                     self.screen.blit(self.bullet_img, (90 + (x * 10), 40))
                 #show grenades
-                self.draw_text('GRENADES: ', self.font, self.WHITE, 10, 60)
+                self.draw_text('GRENADES ', self.font, self.WHITE, 10, 60)
                 for x in range(self.player.grenades):
                     self.screen.blit(self.grenade_img, (135 + (x * 15), 60))
         
