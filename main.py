@@ -76,6 +76,7 @@ class GameMain:
         self.restart_img = pygame.image.load('img/restart_btn.png').convert_alpha()
         self.back_img = pygame.image.load('img/back_btn.png').convert_alpha()
         self.settings_img = pygame.image.load('img/settings_btn.png').convert_alpha()
+        self.scoreboard_img = pygame.image.load('img/scoreboard_btn.png').convert_alpha()
         self.high_img = pygame.image.load('img/high_btn.png').convert_alpha()
         self.low_img = pygame.image.load('img/low_btn.png').convert_alpha()
         self.off_img = pygame.image.load('img/off_btn.png').convert_alpha()
@@ -85,6 +86,7 @@ class GameMain:
         self.pine2_img = pygame.image.load('img/Background/pine2.png').convert_alpha()
         self.mountain_img = pygame.image.load('img/Background/mountain.png').convert_alpha()
         self.sky_img = pygame.image.load('img/Background/sky_cloud.png').convert_alpha()
+        
         #store tiles in a list
         self.img_list = []
         for x in range(self.TILE_TYPES):
@@ -123,8 +125,7 @@ class GameMain:
 
         #create buttons
         self.start_button = button.Button(self.SCREEN_WIDTH // 2 - 92, self.SCREEN_HEIGHT // 2 - 60, self.start_img, 0.7)
-        #scoreboard button:
-        #self.scores_button = button.Button(self.SCREEN_WIDTH // 2 - 170, self.SCREEN_HEIGHT // 2 + 20, self.scores_img, 1)
+        self.scoreboard_button = button.Button(self.SCREEN_WIDTH // 2 - 170, self.SCREEN_HEIGHT // 2 + 20, self.scoreboard_img, 1)
         self.settings_button = button.Button(self.SCREEN_WIDTH // 2 - 118, self.SCREEN_HEIGHT // 2 + 100, self.settings_img, 0.7)
         self.exit_button = button.Button(self.SCREEN_WIDTH // 2 - 78, self.SCREEN_HEIGHT // 2 + 180, self.exit_img, 0.7)
         self.restart_button = button.Button(self.SCREEN_WIDTH // 2 - 100, self.SCREEN_HEIGHT // 2 - 50, self.restart_img, 2)
@@ -206,7 +207,9 @@ class GameMain:
             if self.start_game == False:
                 #draw menu
                 self.screen.fill(self.BG)
+                
                 # check menu state
+                # main menu
                 if self.menu_state == "main":
                     #show game title image
                     self.screen.blit(self.gametitle_img, (self.SCREEN_WIDTH // 2 - 128, self.SCREEN_HEIGHT // 2 - 250))
@@ -216,8 +219,12 @@ class GameMain:
                         self.start_intro = True
                     if self.settings_button.draw(self.screen):
                         self.menu_state = "settings"
+                    if self.scoreboard_button.draw(self.screen):
+                        self.menu_state = "scoreboard"
                     if self.exit_button.draw(self.screen):
                         self.run = False
+                
+                # settings menu
                 if self.menu_state == "settings":
                     self.draw_text('SFX VOLUME ', self.font, self.WHITE, 50, 75)
                     if self.sfx_low_button.draw(self.screen):
@@ -234,6 +241,11 @@ class GameMain:
                         self.grenade_fx.set_volume(0)
                     if self.back_button.draw(self.screen):
                         self.menu_state = "main"
+                        
+                # scoreboard menu
+                if self.menu_state == "scoreboard":
+                    self.score.show_scoreboard()
+                    
                         
             else:
                 #update background
