@@ -212,7 +212,7 @@ class GameMain:
                 # main menu
                 if self.menu_state == "main":
                     #show game title image
-                    self.screen.blit(self.gametitle_img, (self.SCREEN_WIDTH // 2 - 128, self.SCREEN_HEIGHT // 2 - 250))
+                    self.screen.blit(self.gametitle_img, (self.SCREEN_WIDTH // 2 - 210, self.SCREEN_HEIGHT // 2 - 275))
                     #draw main menu screen buttons
                     if self.start_button.draw(self.screen):
                         self.start_game = True
