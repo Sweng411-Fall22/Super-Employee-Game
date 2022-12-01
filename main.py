@@ -261,12 +261,7 @@ class GameMain:
                 self.score.show_score()
                 #show ammo
                 self.draw_text('AMMO ', self.font, self.WHITE, 10, 35)
-                for x in range(self.player.ammo):
-                    self.screen.blit(self.bullet_img, (90 + (x * 10), 40))
-                #show grenades
-                self.draw_text('GRENADES ', self.font, self.WHITE, 10, 60)
-                for x in range(self.player.grenades):
-                    self.screen.blit(self.grenade_img, (135 + (x * 15), 60))
+             
         
         
                 self.player.update()
@@ -302,17 +297,6 @@ class GameMain:
         
                 #update player actions
                 if self.player.alive:
-                    #shoot bullets
-                    if self.shoot:
-                        self.player.shoot()
-                    #throw grenades
-                    elif self.grenade and self.grenade_thrown == False and self.player.grenades > 0:
-                        self.grenade = gr.Grenade(self, self.player.rect.centerx + (0.5 * self.player.rect.size[0] * self.player.direction),\
-                                     self.player.rect.top, self.player.direction)
-                        self.grenade_group.add(self.grenade)
-                        #reduce grenades
-                        self.player.grenades -= 1
-                        self.grenade_thrown = True
                     if self.player.in_air:
                         self.player.update_action(2)#2: jump
                     elif self.moving_left or self.moving_right:
