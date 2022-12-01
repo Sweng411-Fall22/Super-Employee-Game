@@ -48,7 +48,7 @@ class GameMain:
         
         
         self.screen = pygame.display.set_mode((self.SCREEN_WIDTH, self.SCREEN_HEIGHT))
-        pygame.display.set_caption('Shooter')
+        pygame.display.set_caption('Super Employee Game')
         self.score = Score.Score(self)
         
         
