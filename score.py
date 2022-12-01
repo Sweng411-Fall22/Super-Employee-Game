@@ -228,6 +228,33 @@ class Score:
         hs5 = font.render(str(self.high_scores[4]).rstrip("\n"), True, (0, 0, 0))
         hs5_rect = hs5.get_rect()
         hs5_rect.topleft = (stx, sty + 150)
+        
+        
+        ##############################################################
+        #                         DISPLAY                            #
+        ##############################################################
+        
+        # set background color
+        self.screen.fill(self.game.BG)
+        
+        # display titles
+        self.screen.blit(_name, _name_rect)
+        self.screen.blit(_score, _score_rect)
+        
+        # display high score names
+        self.screen.blit(hsn1, hsn1_rect)
+        self.screen.blit(hsn2, hsn2_rect)
+        self.screen.blit(hsn3, hsn3_rect)
+        self.screen.blit(hsn4, hsn4_rect)
+        self.screen.blit(hsn5, hsn5_rect)
+        
+        # display high scores
+        self.screen.blit(hs1, hs1_rect)
+        self.screen.blit(hs2, hs2_rect)
+        self.screen.blit(hs3, hs3_rect)
+        self.screen.blit(hs4, hs4_rect)
+        self.screen.blit(hs5, hs5_rect)
+        
             
         
         # while loop flag
@@ -235,34 +262,21 @@ class Score:
         
         while running:
             
+           
             # exit scoreboard when enter is pressed
             for event in pygame.event.get():
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_RETURN:
                         running = False
                 if event.type == pygame.QUIT:
+                    running = False
                     self.game.run = False
+                if self.game.menu_state == "scoreboard":
+                    if self.game.back_button.draw(self.screen):
+                        self.game.menu_state = "main"
+                        running = False
             
-            # set background color
-            self.screen.fill(self.game.BG)
-            
-            # display titles
-            self.screen.blit(_name, _name_rect)
-            self.screen.blit(_score, _score_rect)
-            
-            # display high score names
-            self.screen.blit(hsn1, hsn1_rect)
-            self.screen.blit(hsn2, hsn2_rect)
-            self.screen.blit(hsn3, hsn3_rect)
-            self.screen.blit(hsn4, hsn4_rect)
-            self.screen.blit(hsn5, hsn5_rect)
-            
-            # display high scores
-            self.screen.blit(hs1, hs1_rect)
-            self.screen.blit(hs2, hs2_rect)
-            self.screen.blit(hs3, hs3_rect)
-            self.screen.blit(hs4, hs4_rect)
-            self.screen.blit(hs5, hs5_rect)
+           
             
             # update display
             pygame.display.update()
