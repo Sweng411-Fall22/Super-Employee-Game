@@ -15,7 +15,7 @@ class Score:
         self.score = self.game.player_score
         
         # Get high scores list
-        with open('scores.txt.', 'r') as file:
+        with open('scores.txt', 'r') as file:
             self.high_scores = file.readlines()
             
         # convert to ints
@@ -23,7 +23,7 @@ class Score:
             self.high_scores[i] = int(self.high_scores[i])
             
         # get names list
-        with open('names.txt.', 'r') as file:
+        with open('names.txt', 'r') as file:
             self.high_score_names = file.readlines()
         
 
