@@ -259,10 +259,7 @@ class GameMain:
                 self.health_bar.draw(self.player.health)
                 #show score
                 self.score.show_score()
-                #show ammo
-                self.draw_text('AMMO ', self.font, self.WHITE, 10, 35)
-             
-        
+                       
         
                 self.player.update()
                 self.player.draw()
