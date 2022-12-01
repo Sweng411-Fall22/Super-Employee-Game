@@ -118,11 +118,13 @@ class GameMain:
         self.death_fade = sf.ScreenFade(self, 2, self.PINK, 4)
 
         #create buttons
-        self.start_button = button.Button(self.SCREEN_WIDTH // 2 - 130, self.SCREEN_HEIGHT // 2 - 150, self.start_img, 1)
-        self.exit_button = button.Button(self.SCREEN_WIDTH // 2 - 110, self.SCREEN_HEIGHT // 2 + 50, self.exit_img, 1)
+        self.start_button = button.Button(self.SCREEN_WIDTH // 2 - 92, self.SCREEN_HEIGHT // 2 - 60, self.start_img, 0.7)
+        #scoreboard button:
+        #self.scores_button = button.Button(self.SCREEN_WIDTH // 2 - 170, self.SCREEN_HEIGHT // 2 + 20, self.scores_img, 1)
+        self.settings_button = button.Button(self.SCREEN_WIDTH // 2 - 118, self.SCREEN_HEIGHT // 2 + 100, self.settings_img, 0.7)
+        self.exit_button = button.Button(self.SCREEN_WIDTH // 2 - 78, self.SCREEN_HEIGHT // 2 + 180, self.exit_img, 0.7)
         self.restart_button = button.Button(self.SCREEN_WIDTH // 2 - 100, self.SCREEN_HEIGHT // 2 - 50, self.restart_img, 2)
         self.back_button = button.Button(self.SCREEN_WIDTH - 120, self.SCREEN_HEIGHT // 100, self.back_img, 0.5)
-        self.settings_button = button.Button(self.SCREEN_WIDTH // 2 - 170, self.SCREEN_HEIGHT // 2 - 50, self.settings_img, 1)
         self.sfx_high_button = button.Button(self.SCREEN_WIDTH - 275, self.SCREEN_HEIGHT // 2 - 180, self.high_img, 1)
         self.sfx_low_button = button.Button(self.SCREEN_WIDTH - 475, self.SCREEN_HEIGHT // 2 - 180, self.low_img, 1)
         self.sfx_off_button = button.Button(self.SCREEN_WIDTH - 675, self.SCREEN_HEIGHT // 2 - 180, self.off_img, 1)
