@@ -35,7 +35,7 @@ class Soldier(pygame.sprite.Sprite):
         self.idling_counter = 0
         
         #load all images for the players
-        animation_types = ['Idle', 'Run', 'Jump', 'Death']
+        animation_types = ['Idle', 'Run', 'Jump']
         for animation in animation_types:
             #reset temporary list of images
             temp_list = []
@@ -226,7 +226,6 @@ class Soldier(pygame.sprite.Sprite):
             self.health = 0
             self.speed = 0
             self.alive = False
-            self.update_action(3)
 
 
     def draw(self):
