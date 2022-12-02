@@ -54,7 +54,7 @@ class GameMain:
         
         
         #load music and sounds
-        #pygame.mixer.music.load('audio/music2.mp3')
+        #pygame.mixer.music.load('audio/music.wav')
         #pygame.mixer.music.set_volume(0.3)
         #pygame.mixer.music.play(-1, 0.0, 5000)
         self.jump_fx = pygame.mixer.Sound('audio/jump.wav')
@@ -133,6 +133,10 @@ class GameMain:
         self.sfx_high_button = button.Button(self.SCREEN_WIDTH - 275, self.SCREEN_HEIGHT // 2 - 180, self.high_img, 1)
         self.sfx_low_button = button.Button(self.SCREEN_WIDTH - 475, self.SCREEN_HEIGHT // 2 - 180, self.low_img, 1)
         self.sfx_off_button = button.Button(self.SCREEN_WIDTH - 675, self.SCREEN_HEIGHT // 2 - 180, self.off_img, 1)
+        self.music_high_button = button.Button(self.SCREEN_WIDTH - 275, self.SCREEN_HEIGHT // 2+90, self.high_img, 1)
+        self.music_low_button = button.Button(self.SCREEN_WIDTH - 475, self.SCREEN_HEIGHT // 2+90, self.low_img, 1)
+        self.music_off_button = button.Button(self.SCREEN_WIDTH - 675, self.SCREEN_HEIGHT // 2+90, self.off_img, 1)
+
 
         #create sprite groups
         self.enemy_group = pygame.sprite.Group()
@@ -239,6 +243,12 @@ class GameMain:
                         self.jump_fx.set_volume(0)
                         self.shot_fx.set_volume(0)
                         self.grenade_fx.set_volume(0)
+                    if self.music_low_button.draw(self.screen):
+                        pygame.mixer.music.set_volume(0.025)
+                    if self.music_high_button.draw(self.screen):
+                        pygame.mixer.music.set_volume(0.075)
+                    if self.music_off_button.draw(self.screen):
+                        pygame.mixer.music.set_volume(0)
                     if self.back_button.draw(self.screen):
                         self.menu_state = "main"
                         
