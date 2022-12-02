@@ -100,11 +100,11 @@ class GameMain:
         #pick up boxes
         self.health_box_img = pygame.image.load('img/icons/health_box.png').convert_alpha()
         self.ammo_box_img = pygame.image.load('img/icons/ammo_box.png').convert_alpha()
-        self.grenade_box_img = pygame.image.load('img/icons/grenade_box.png').convert_alpha()
+        self.coin_img = pygame.image.load('img/icons/coinitem.png').convert_alpha()
         self.item_boxes = {
             'Health'    : self.health_box_img,
             'Ammo'        : self.ammo_box_img,
-            'Grenade'    : self.grenade_box_img
+            'Grenade'    : self.coin_img
         }
         
         
