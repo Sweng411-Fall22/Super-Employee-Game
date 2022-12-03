@@ -113,10 +113,10 @@ class GameMain:
         self.death_fade = sf.ScreenFade(self, 2, self.PINK, 4)
 
         #create buttons
-        self.start_button = button.Button(self.SCREEN_WIDTH // 2 - 92, self.SCREEN_HEIGHT // 2 - 60, self.start_img, 0.7)
-        self.scoreboard_button = button.Button(self.SCREEN_WIDTH // 2 - 170, self.SCREEN_HEIGHT // 2 + 20, self.scoreboard_img, 1)
-        self.settings_button = button.Button(self.SCREEN_WIDTH // 2 - 118, self.SCREEN_HEIGHT // 2 + 100, self.settings_img, 0.7)
-        self.exit_button = button.Button(self.SCREEN_WIDTH // 2 - 78, self.SCREEN_HEIGHT // 2 + 180, self.exit_img, 0.7)
+        self.start_button = button.Button(self.SCREEN_WIDTH // 2 - 92, self.SCREEN_HEIGHT // 2 - 54, self.start_img, 0.7)
+        self.scoreboard_button = button.Button(self.SCREEN_WIDTH // 2 - 172, self.SCREEN_HEIGHT // 2 + 28, self.scoreboard_img, 1)
+        self.settings_button = button.Button(self.SCREEN_WIDTH // 2 - 118, self.SCREEN_HEIGHT // 2 + 106, self.settings_img, 0.7)
+        self.exit_button = button.Button(self.SCREEN_WIDTH // 2 - 78, self.SCREEN_HEIGHT // 2 + 186, self.exit_img, 0.7)
         self.restart_button = button.Button(self.SCREEN_WIDTH // 2 - 100, self.SCREEN_HEIGHT // 2 - 50, self.restart_img, 2)
         self.back_button = button.Button(self.SCREEN_WIDTH - 120, self.SCREEN_HEIGHT // 100, self.back_img, 0.5)
         self.sfx_high_button = button.Button(self.SCREEN_WIDTH - 275, self.SCREEN_HEIGHT // 2 - 180, self.high_img, 1)
@@ -202,7 +202,7 @@ class GameMain:
                 # main menu
                 if self.menu_state == "main":
                     #show game title image
-                    self.screen.blit(self.gametitle_img, (self.SCREEN_WIDTH // 2 - 210, self.SCREEN_HEIGHT // 2 - 275))
+                    self.screen.blit(self.gametitle_img, (self.SCREEN_WIDTH // 2 - 210, self.SCREEN_HEIGHT // 2 - 256))
                     #draw main menu screen buttons
                     if self.start_button.draw(self.screen):
                         self.start_game = True
