@@ -94,8 +94,6 @@ class GameMain:
             self.img_list.append(self.img)
         #bullet
         self.bullet_img = pygame.image.load('img/icons/bullet.png').convert_alpha()
-        #grenade
-        self.grenade_img = pygame.image.load('img/icons/grenade.png').convert_alpha()
         #pick up boxes
         self.health_box_img = pygame.image.load('img/icons/health_box.png').convert_alpha()
         self.ammo_box_img = pygame.image.load('img/icons/ammo_box.png').convert_alpha()
