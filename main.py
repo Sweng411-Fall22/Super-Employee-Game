@@ -60,8 +60,6 @@ class GameMain:
         self.jump_fx.set_volume(0.05)
         self.shot_fx = pygame.mixer.Sound('audio/shot.wav')
         self.shot_fx.set_volume(0.05)
-        self.grenade_fx = pygame.mixer.Sound('audio/grenade.wav')
-        self.grenade_fx.set_volume(0.05)
 
         #game title image
         self.gametitle_img = pygame.image.load('img/gametitle.png')
