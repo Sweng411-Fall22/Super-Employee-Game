@@ -19,13 +19,7 @@ class ItemBox(pygame.sprite.Sprite):
             self.game.player_score += 5
             self.game.score.prep_score()
             #check what kind of box it was
-            if self.item_type == 'Health':
-                self.game.player.health += 25
-                if self.game.player.health > self.game.player.max_health:
-                    self.game.player.health = self.game.player.max_health
-            elif self.item_type == 'Ammo':
-                self.game.player.ammo += 15
-            elif self.item_type == 'Grenade':
+            if self.item_type == 'Coin':
                 self.game.player.grenades += 3
             #delete the item box
             self.kill()

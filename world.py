@@ -37,16 +37,10 @@ class World():
                     elif tile == 16:#create enemies
                         enemy = sol.Soldier(self.game, 'enemy', x * self.game.TILE_SIZE, y * self.game.TILE_SIZE, 1.65, 2, 20, 0)
                         self.game.enemy_group.add(enemy)
-                    elif tile == 17:#create ammo box
-                        item_box = ib.ItemBox(self.game, 'Ammo', x * self.game.TILE_SIZE, y * self.game.TILE_SIZE)
+                    elif tile == 17:#create coin
+                        item_box = ib.ItemBox(self.game, 'Coin', x * self.game.TILE_SIZE, y * self.game.TILE_SIZE)
                         self.game.item_box_group.add(item_box)
-                    elif tile == 18:#create grenade box
-                        item_box = ib.ItemBox(self.game, 'Grenade', x * self.game.TILE_SIZE, y * self.game.TILE_SIZE)
-                        self.game.item_box_group.add(item_box)
-                    elif tile == 19:#create health box
-                        item_box = ib.ItemBox(self.game, 'Health', x * self.game.TILE_SIZE, y * self.game.TILE_SIZE)
-                        self.game.item_box_group.add(item_box)
-                    elif tile == 20:#create exit
+                    elif tile == 18:#create exit
                         __exit = ex.Exit(self.game, img, x * self.game.TILE_SIZE, y * self.game.TILE_SIZE)
                         self.game.exit_group.add(__exit)
 

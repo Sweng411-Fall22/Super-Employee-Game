@@ -94,14 +94,10 @@ class GameMain:
             self.img_list.append(self.img)
         #bullet
         self.bullet_img = pygame.image.load('img/icons/bullet.png').convert_alpha()
-        #pick up boxes
-        self.health_box_img = pygame.image.load('img/icons/health_box.png').convert_alpha()
-        self.ammo_box_img = pygame.image.load('img/icons/ammo_box.png').convert_alpha()
+        #collectible
         self.coin_img = pygame.image.load('img/icons/coinitem.png').convert_alpha()
         self.item_boxes = {
-            'Health'    : self.health_box_img,
-            'Ammo'        : self.ammo_box_img,
-            'Grenade'    : self.coin_img
+            'Coin'    : self.coin_img
         }
         
         
