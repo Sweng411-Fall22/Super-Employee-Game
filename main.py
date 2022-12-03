@@ -106,7 +106,7 @@ class GameMain:
         self.PINK = (235, 65, 54)
         
         #define font
-        self.font = pygame.font.Font('font/ARCADECLASSIC.TTF', 30)
+        self.font = pygame.font.Font('font/ARCADECLASSIC.TTF', 45)
         
         #create screen fades
         self.intro_fade = sf.ScreenFade(self, 1, self.BLACK, 4)

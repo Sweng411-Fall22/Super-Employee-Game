@@ -25,12 +25,10 @@ class Score:
         # get names list
         with open('names.txt', 'r') as file:
             self.high_score_names = file.readlines()
-        
 
         # Font settings
-        self.text_color = (0, 0, 0)
-        self.font_size = 35
-        self.font = pygame.font.SysFont(None, self.font_size)
+        self.text_color = (255, 255, 255)
+        self.font = pygame.font.Font('font/ARCADECLASSIC.TTF', 35)
 
         # Prep initial score images.
         self.prep_score()
@@ -47,7 +45,7 @@ class Score:
         # Display score at top of screen.
         self.score_rect = self.score_image.get_rect()
         self.score_rect.right = (self.screen_rect.right / 2) + (self.score_rect.width / 2)
-        self.score_rect.top = 20
+        self.score_rect.top = 15
         
         
         
