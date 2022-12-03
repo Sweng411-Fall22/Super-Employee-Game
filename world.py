@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 import pygame
 import water as wt
-import decoration as dec
 import soldier as sol
 import healthbar as hb
 import itembox as ib

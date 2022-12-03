@@ -18,9 +18,6 @@ class ItemBox(pygame.sprite.Sprite):
         if pygame.sprite.collide_rect(self, self.game.player):
             self.game.player_score += 5
             self.game.score.prep_score()
-            #check what kind of box it was
-            if self.item_type == 'Coin':
-                self.game.player.grenades += 3
             #delete the item box
             self.kill()
 
