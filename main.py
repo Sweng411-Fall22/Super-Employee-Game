@@ -41,8 +41,6 @@ class GameMain:
         self.moving_left = False
         self.moving_right = False
         self.shoot = False
-        self.grenade = False
-        self.grenade_thrown = False
         self.player_score = 0
         
         
@@ -132,10 +130,7 @@ class GameMain:
         #create sprite groups
         self.enemy_group = pygame.sprite.Group()
         self.bullet_group = pygame.sprite.Group()
-        self.grenade_group = pygame.sprite.Group()
-        self.explosion_group = pygame.sprite.Group()
         self.item_box_group = pygame.sprite.Group()
-        self.decoration_group = pygame.sprite.Group()
         self.water_group = pygame.sprite.Group()
         self.exit_group = pygame.sprite.Group()
         
@@ -176,10 +171,7 @@ class GameMain:
     def reset_level(self):
         self.enemy_group.empty()
         self.bullet_group.empty()
-        self.grenade_group.empty()
-        self.explosion_group.empty()
         self.item_box_group.empty()
-        self.decoration_group.empty()
         self.water_group.empty()
         self.exit_group.empty()
         
@@ -225,15 +217,12 @@ class GameMain:
                     if self.sfx_low_button.draw(self.screen):
                         self.jump_fx.set_volume(0.025)
                         self.shot_fx.set_volume(0.025)
-                        self.grenade_fx.set_volume(0.025)
                     if self.sfx_high_button.draw(self.screen):
                         self.jump_fx.set_volume(0.075)
                         self.shot_fx.set_volume(0.075)
-                        self.grenade_fx.set_volume(0.075)
                     if self.sfx_off_button.draw(self.screen):
                         self.jump_fx.set_volume(0)
                         self.shot_fx.set_volume(0)
-                        self.grenade_fx.set_volume(0)
                     if self.music_low_button.draw(self.screen):
                         pygame.mixer.music.set_volume(0.025)
                     if self.music_high_button.draw(self.screen):
@@ -272,17 +261,11 @@ class GameMain:
         
                 #update and draw groups
                 self.bullet_group.update()
-                self.grenade_group.update()
-                self.explosion_group.update()
                 self.item_box_group.update()
-                self.decoration_group.update()
                 self.water_group.update()
                 self.exit_group.update()
                 self.bullet_group.draw(self.screen)
-                self.grenade_group.draw(self.screen)
-                self.explosion_group.draw(self.screen)
                 self.item_box_group.draw(self.screen)
-                self.decoration_group.draw(self.screen)
                 self.water_group.draw(self.screen)
                 self.exit_group.draw(self.screen)
         
@@ -356,8 +339,6 @@ class GameMain:
                         self.moving_right = True
                     if event.key == pygame.K_SPACE:
                         self.shoot = True
-                    if event.key == pygame.K_q:
-                        self.grenade = True
                     if event.key == pygame.K_w and self.player.alive:
                         self.player.jump = True
                         self.jump_fx.play()
@@ -371,11 +352,6 @@ class GameMain:
                         self.moving_left = False
                     if event.key == pygame.K_d:
                         self.moving_right = False
-                    if event.key == pygame.K_SPACE:
-                        self.shoot = False
-                    if event.key == pygame.K_q:
-                        self.grenade = False
-                        self.grenade_thrown = False
         
         
             pygame.display.update()
