@@ -23,24 +23,21 @@ class World():
                     img_rect.x = x * self.game.TILE_SIZE
                     img_rect.y = y * self.game.TILE_SIZE
                     tile_data = (img, img_rect)
-                    if tile >= 0 and tile <= 8:
+                    if tile >= 0 and tile <= 1:
                         self.obstacle_list.append(tile_data)
-                    elif tile >= 9 and tile <= 10:
+                    elif tile >= 2 and tile <= 3:
                         water = wt.Water(self.game, img, x * self.game.TILE_SIZE, y * self.game.TILE_SIZE)
                         self.game.water_group.add(water)
-                    elif tile >= 11 and tile <= 14:
-                        decoration = dec.Decoration(self.game, img, x * self.game.TILE_SIZE, y * self.game.TILE_SIZE)
-                        self.game.decoration_group.add(decoration)
-                    elif tile == 15:#create player
+                    elif tile == 4:#create player
                         player = sol.Soldier(self.game, 'player', x * self.game.TILE_SIZE, y * self.game.TILE_SIZE, 1.65, 5, 20, 5)
                         health_bar = hb.HealthBar(self.game, 10, 10, player.health, player.health)
-                    elif tile == 16:#create enemies
+                    elif tile == 5:#create enemies
                         enemy = sol.Soldier(self.game, 'enemy', x * self.game.TILE_SIZE, y * self.game.TILE_SIZE, 1.65, 2, 20, 0)
                         self.game.enemy_group.add(enemy)
-                    elif tile == 17:#create coin
+                    elif tile == 6:#create coin
                         item_box = ib.ItemBox(self.game, 'Coin', x * self.game.TILE_SIZE, y * self.game.TILE_SIZE)
                         self.game.item_box_group.add(item_box)
-                    elif tile == 18:#create exit
+                    elif tile == 7:#create exit
                         __exit = ex.Exit(self.game, img, x * self.game.TILE_SIZE, y * self.game.TILE_SIZE)
                         self.game.exit_group.add(__exit)
 
