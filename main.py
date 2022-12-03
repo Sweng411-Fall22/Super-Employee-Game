@@ -158,7 +158,7 @@ class GameMain:
     
     
     def draw_bg(self):
-        self.screen.fill(self.BG)
+        self.screen.fill(self.WHITE)
         width = self.sky_img.get_width()
         for x in range(5):
             self.screen.blit(self.sky_img, ((x * width) - self.bg_scroll * 0.5, 0))
@@ -190,11 +190,14 @@ class GameMain:
         while self.run:
         
             self.clock.tick(self.FPS)
-        
+
+
+
             if self.start_game == False:
-                #draw menu
-                self.screen.fill(self.BG)
-                
+                #draw menu bkg
+                self.draw_bg()
+
+
                 # check menu state
                 # main menu
                 if self.menu_state == "main":
