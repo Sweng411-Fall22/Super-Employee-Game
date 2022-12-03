@@ -6,7 +6,6 @@ import csv
 import button
 import screenfade as sf
 import world as wr
-import grenade as gr
 import score as Score
 
 class GameMain:
