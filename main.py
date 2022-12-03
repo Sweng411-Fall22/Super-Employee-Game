@@ -27,7 +27,7 @@ class GameMain:
         self.ROWS = 16
         self.COLS = 150
         self.TILE_SIZE = self.SCREEN_HEIGHT // self.ROWS
-        self.TILE_TYPES = 21
+        self.TILE_TYPES = 19
         self.MAX_LEVELS = 3
         self.screen_scroll = 0
         self.bg_scroll = 0
