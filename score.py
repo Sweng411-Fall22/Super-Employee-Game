@@ -161,71 +161,72 @@ class Score:
     def show_scoreboard(self):
         ''' prints top 5 high scores to screen '''
 
-        font = self.font
+        font = pygame.font.Font('font/ARCADECLASSIC.TTF', 40)
+        color = self.game.WHITE
         
         # title coordinates
-        ntx = 20
+        ntx = 180
         nty = 20
-        stx = (self.game.SCREEN_WIDTH / 2) + 20
+        stx = ((self.game.SCREEN_WIDTH / 2) + 20) + 72
         sty = 20
         
         # name title
-        _name = font.render('Name:', True, (0, 0, 0))
+        _name = font.render('Player Name', True, color)
         _name_rect = _name.get_rect()
-        _name_rect.topleft = (ntx, nty)
+        _name_rect.topleft = (ntx, nty + 180)
         
         # score title
-        _score = font.render('Score:', True, (0, 0, 0))
+        _score = font.render('Score', True, color)
         _score_rect = _score.get_rect()
-        _score_rect.topleft = (stx, sty)
+        _score_rect.topleft = (stx, sty + 180)
         
         
         ##############################################################
         #          IMAGES: high score names 1 - 5                    #
         ##############################################################
-        hsn1 = font.render(self.high_score_names[0].rstrip("\n"), True, (0, 0, 0))
+        hsn1 = font.render(self.high_score_names[0].rstrip("\n"), True, color)
         hsn1_rect = hsn1.get_rect()
-        hsn1_rect.topleft = (ntx, nty + 30)
+        hsn1_rect.topleft = (ntx, nty + 230)
         
-        hsn2 = font.render(self.high_score_names[1].rstrip("\n"), True, (0, 0, 0))
+        hsn2 = font.render(self.high_score_names[1].rstrip("\n"), True, color)
         hsn2_rect = hsn2.get_rect()
-        hsn2_rect.topleft = (ntx, nty + 60)
+        hsn2_rect.topleft = (ntx, nty + 270)
         
-        hsn3 = font.render(self.high_score_names[2].rstrip("\n"), True, (0, 0, 0))
+        hsn3 = font.render(self.high_score_names[2].rstrip("\n"), True, color)
         hsn3_rect = hsn3.get_rect()
-        hsn3_rect.topleft = (ntx, nty + 90)
+        hsn3_rect.topleft = (ntx, nty + 310)
         
-        hsn4 = font.render(self.high_score_names[3].rstrip("\n"), True, (0, 0, 0))
+        hsn4 = font.render(self.high_score_names[3].rstrip("\n"), True, color)
         hsn4_rect = hsn4.get_rect()
-        hsn4_rect.topleft = (ntx, nty + 120)
+        hsn4_rect.topleft = (ntx, nty + 350)
         
-        hsn5 = font.render(self.high_score_names[4].rstrip("\n"), True, (0, 0, 0))
+        hsn5 = font.render(self.high_score_names[4].rstrip("\n"), True, color)
         hsn5_rect = hsn5.get_rect()
-        hsn5_rect.topleft = (ntx, nty + 150)
+        hsn5_rect.topleft = (ntx, nty + 390)
         
         
         ##############################################################
         #               IMAGES: high scores 1 - 5                    #
         ##############################################################
-        hs1 = font.render(str(self.high_scores[0]).rstrip("\n"), True, (0, 0, 0))
+        hs1 = font.render(str(self.high_scores[0]).rstrip("\n"), True, color)
         hs1_rect = hs1.get_rect()
-        hs1_rect.topleft = (stx, sty + 30)
+        hs1_rect.topleft = (stx, sty + 230)
         
-        hs2 = font.render(str(self.high_scores[1]).rstrip("\n"), True, (0, 0, 0))
+        hs2 = font.render(str(self.high_scores[1]).rstrip("\n"), True, color)
         hs2_rect = hs2.get_rect()
-        hs2_rect.topleft = (stx, sty + 60)
+        hs2_rect.topleft = (stx, sty + 270)
         
-        hs3 = font.render(str(self.high_scores[2]).rstrip("\n"), True, (0, 0, 0))
+        hs3 = font.render(str(self.high_scores[2]).rstrip("\n"), True, color)
         hs3_rect = hs3.get_rect()
-        hs3_rect.topleft = (stx, sty + 90)
+        hs3_rect.topleft = (stx, sty + 310)
         
-        hs4 = font.render(str(self.high_scores[3]).rstrip("\n"), True, (0, 0, 0))
+        hs4 = font.render(str(self.high_scores[3]).rstrip("\n"), True, color)
         hs4_rect = hs4.get_rect()
-        hs4_rect.topleft = (stx, sty + 120)
+        hs4_rect.topleft = (stx, sty + 350)
         
-        hs5 = font.render(str(self.high_scores[4]).rstrip("\n"), True, (0, 0, 0))
+        hs5 = font.render(str(self.high_scores[4]).rstrip("\n"), True, color)
         hs5_rect = hs5.get_rect()
-        hs5_rect.topleft = (stx, sty + 150)
+        hs5_rect.topleft = (stx, sty + 390)
         
         
         ##############################################################
@@ -233,8 +234,8 @@ class Score:
         ##############################################################
         
         # set background color
-        self.screen.fill(self.game.BG)
-        
+        self.game.draw_bg()
+
         # display titles
         self.screen.blit(_name, _name_rect)
         self.screen.blit(_score, _score_rect)
