@@ -332,7 +332,6 @@ class GameMain:
             for event in pygame.event.get():
                 #quit game
                 if event.type == pygame.QUIT:
-                    self.score.check_scores()
                     self.run = False
                 #keyboard presses
                 if event.type == pygame.KEYDOWN:
@@ -340,8 +339,6 @@ class GameMain:
                         self.moving_left = True
                     if event.key == pygame.K_d:
                         self.moving_right = True
-                    if event.key == pygame.K_SPACE:
-                        self.shoot = True
                     if event.key == pygame.K_w and self.player.alive:
                         self.player.jump = True
                         self.jump_fx.play()

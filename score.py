@@ -101,15 +101,15 @@ class Score:
         font = self.font
         
         # enter name msg
-        text1 = font.render('Enter Name:', True, (0, 0, 0))
+        text1 = font.render('Enter Name', True, (255, 255, 255))
         rect1 = text1.get_rect()
         rect1.center = ((self.game.SCREEN_WIDTH / 2), (self.game.SCREEN_HEIGHT / 2))
         
         # name text
-        name = 'AAA'
+        name = 'player'
  
         # render the text
-        img = font.render(name, True, (0, 0, 0))
+        img = font.render(name, True, (255, 255, 255))
         rect = img.get_rect()
         rect.center = (((self.game.SCREEN_WIDTH / 2) - 20), ((self.game.SCREEN_HEIGHT / 2) + 40))
         cursor = pygame.Rect(rect.topright, (3, rect.height))
@@ -137,18 +137,18 @@ class Score:
                     else:
                         name += event.unicode
                  
-                    img = font.render(name, True, (0, 0, 0))
+                    img = font.render(name, True, (255, 255, 255))
                     rect.size = img.get_size()
                     cursor.topleft = rect.topright
  
             # Add background color and show text to the window screen
-            self.screen.fill(self.game.BG)
+            self.game.draw_bg()
             self.screen.blit(img, rect)
             self.screen.blit(text1, rect1)
      
             # cursor is made to blink after every 0.5 sec
             if time.time() % 1 > 0.5:
-                pygame.draw.rect(self.screen, (0, 0, 0), cursor)
+                pygame.draw.rect(self.screen, (255, 255, 255), cursor)
          
             # update display
             pygame.display.update()
