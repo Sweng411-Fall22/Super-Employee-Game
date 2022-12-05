@@ -51,9 +51,9 @@ class GameMain:
         
         
         #load music and sounds
-        #pygame.mixer.music.load('audio/music.wav')
-        #pygame.mixer.music.set_volume(0.3)
-        #pygame.mixer.music.play(-1, 0.0, 5000)
+        pygame.mixer.music.load('audio/music.wav')
+        pygame.mixer.music.set_volume(0.05)
+        pygame.mixer.music.play(-1, 0.0, 5000)
         self.jump_fx = pygame.mixer.Sound('audio/jump.wav')
         self.jump_fx.set_volume(0.05)
         self.shot_fx = pygame.mixer.Sound('audio/shot.wav')
@@ -61,9 +61,7 @@ class GameMain:
 
         #game title image
         self.gametitle_img = pygame.image.load('img/gametitle.png')
-        #use to manually re-size image:
-        #self.gametitle_img = pygame.transform.scale(self.gametitle_img, (self.gametitle_img.get_width(), self.gametitle_img.get_height()))
-        
+
         #load images
         #button images
         self.start_img = pygame.image.load('img/start_btn.png').convert_alpha()
@@ -216,7 +214,7 @@ class GameMain:
                 
                 # settings menu
                 if self.menu_state == "settings":
-                    self.draw_text('SFX VOLUME ', self.font, self.WHITE, 50, 75)
+                    self.draw_text('SFX VOLUME ', self.font, self.WHITE, 295, 40)
                     if self.sfx_low_button.draw(self.screen):
                         self.jump_fx.set_volume(0.025)
                         self.shot_fx.set_volume(0.025)
@@ -226,6 +224,7 @@ class GameMain:
                     if self.sfx_off_button.draw(self.screen):
                         self.jump_fx.set_volume(0)
                         self.shot_fx.set_volume(0)
+                    self.draw_text('MUSIC VOLUME ', self.font, self.WHITE, 270, 320)
                     if self.music_low_button.draw(self.screen):
                         pygame.mixer.music.set_volume(0.025)
                     if self.music_high_button.draw(self.screen):
